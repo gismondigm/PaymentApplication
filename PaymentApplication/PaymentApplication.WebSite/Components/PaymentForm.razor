@@ -34,26 +34,6 @@
             </small>
         </div>
     </div>
-
-
-
-    @*@foreach (var product in ProductService.GetProducts())
-            {
-        <div class="card">
-            <div class="card-img" style="background-image: url('@product.Image');">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">@product.Title</h5>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">
-                    <button @onclick="(e => SelectProduct(product.Id))"
-                            data-toggle="modal" data-target="#productModal" class="btn btn-primary">
-                        More Info
-                    </button>
-                </small>
-            </div>
-        </div>}*@
 </div>
 
 
@@ -61,7 +41,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 @code
-{ Product selectedProduct;
+{ UserPayment selectedProduct;
     string selectedProductId;
 
     void SelectProduct(string productId)

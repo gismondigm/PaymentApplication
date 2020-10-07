@@ -17,7 +17,7 @@ namespace PaymentApplication.WebSite.Controllers
         public JsonFileProductService ProductService { get; }
 
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IEnumerable<UserPayment> Get()
         {
             return ProductService.GetProducts();
         }

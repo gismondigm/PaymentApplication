@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace PaymentApplication.WebSite.Models
 {
-    public class Product
+    public class UserPayment
     {
         public string Id { get; set; }
         public string Maker { get; set; }
@@ -15,7 +15,7 @@ namespace PaymentApplication.WebSite.Models
         public string Description { get; set; }
         public int[] Ratings { get; set; }
 
-        public override string ToString() => JsonSerializer.Serialize<Product>(this);
+        public override string ToString() => JsonSerializer.Serialize<UserPayment>(this);
 
 
     }

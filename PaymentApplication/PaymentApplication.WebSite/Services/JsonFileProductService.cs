@@ -21,11 +21,11 @@ namespace PaymentApplication.WebSite.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
-        public IEnumerable<Product> GetProducts()
+        public IEnumerable<UserPayment> GetProducts()
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
+                return JsonSerializer.Deserialize<UserPayment[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
@@ -50,7 +50,7 @@ namespace PaymentApplication.WebSite.Services
 
             using(var outputStream = File.OpenWrite(JsonFileName))
             {
-                JsonSerializer.Serialize<IEnumerable<Product>>(
+                JsonSerializer.Serialize<IEnumerable<UserPayment>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     {
                         SkipValidation = true,
