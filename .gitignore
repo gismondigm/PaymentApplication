@@ -3,6 +3,6 @@
 ################################################################################
 
 /.vs
-/PaymentApplication/.vs/PaymentApplication/v16
+/PaymentApplication/.vs
 /PaymentApplication/PaymentApplication.WebSite/obj
 /PaymentApplication/PaymentApplication.WebSite/bin
