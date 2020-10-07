@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/PaymentApplication/.vs/PaymentApplication/v16
+/PaymentApplication/PaymentApplication.WebSite/obj
