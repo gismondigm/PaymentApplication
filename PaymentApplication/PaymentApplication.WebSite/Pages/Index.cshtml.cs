@@ -13,10 +13,7 @@ namespace PaymentApplication.WebSite.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Subject { get; set; }
-        public string Message { get; set; }
+
 
 
         public string firstName { get; set; }
@@ -38,13 +35,6 @@ namespace PaymentApplication.WebSite.Pages
         public IActionResult OnPost()
         {
 
-            Console.WriteLine(Name);
-
-            Console.WriteLine(Email);
-
-            Console.WriteLine(Subject);
-
-            Console.WriteLine(Message);
 
             return Page();
         }

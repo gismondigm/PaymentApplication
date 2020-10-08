@@ -15,6 +15,11 @@ namespace PaymentApplication.WebSite.Models
         public string Description { get; set; }
         public int[] Ratings { get; set; }
 
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
+
         public override string ToString() => JsonSerializer.Serialize<UserPayment>(this);
 
 

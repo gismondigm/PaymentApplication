@@ -1,6 +1,7 @@
 @using PaymentApplication.WebSite.Models
 @using PaymentApplication.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
+@using PaymentApplication.WebSite.Pages
 @inject JsonFileProductService ProductService
 
 <div class="card-columns">
@@ -10,76 +11,44 @@
 
         <div class="card-body">
             <h5 class="card-title">Enter Payment Details</h5>
-            <table>
-                <tr>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname">
-                </tr>
-                <tr>
-                    <label for="lname">Last name:</label>
-                    <input type="text" id="lname" name="lname">
-                </tr>
-                <tr>
-                    <label for="quantity">Hours Worked:</label>
-                    <input type="number" id="quantity" name="quantity">
-                </tr>
-            </table>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">
-                <button @onclick="(e => SubmitRating())"
-                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">
-                    Submit
-                </button>
-            </small>
+
+            <form method="post" role="form" class="email-form">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Your Name</label>
+                        <input type="text" asp-for="@selectedProduct.Name" value="Gekko" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="name">Your Email</label>
+                        <input type="email" asp-for="@selectedProduct.Email" value="someone@email.com" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                        <div class="validate"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Subject</label>
+                    <input type="text" asp-for="@selectedProduct.Subject" value="Work" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Message</label>
+                    <textarea class="form-control" asp-for="@selectedProduct.Message" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                    <div class="validate"></div>
+                </div>
+                <div><button class="btn btn-primary" @onclick="(e => SubmitRating(selectedProduct.Name))" id="submit">Submit</button></div>
+            </form>
         </div>
     </div>
+
 </div>
-
-
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 @code
-{ UserPayment selectedProduct;
+{ UserPayment selectedProduct = new UserPayment();
     string selectedProductId;
 
-    void SelectProduct(string productId)
+    void SubmitRating(string name)
     {
-        selectedProductId = productId;
-        selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
-        GetCurrentRating();
-    }
-
-    int currentRating = 0;
-    int voteCount = 0;
-    string voteLabel;
-
-    void GetCurrentRating()
-    {
-        if (selectedProduct.Ratings == null)
-        {
-            currentRating = 0;
-            voteCount = 0;
-        }
-        else
-        {
-            voteCount = selectedProduct.Ratings.Count();
-            voteLabel = voteCount > 1 ? "Votes" : "Vote";
-            currentRating = selectedProduct.Ratings.Sum() / voteCount;
-        }
-
-        System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
-    }
-
-    void SubmitRating(int rating)
-    {
-        System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
-        ProductService.AddRating(selectedProductId, rating);
-        SelectProduct(selectedProductId);
-    }
-
-    void SubmitRating()
-    {
-
+        ProductService.SubmitName(name);
     } }
