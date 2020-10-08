@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace PaymentApplication.WebSite.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
+    [Route("Index")]
     public class ProductsController : ControllerBase
     {
         public ProductsController(JsonFileProductService productService)
@@ -27,6 +28,14 @@ namespace PaymentApplication.WebSite.Controllers
         {
             //ProductService.AddRating(request.ProductId, request.Rating);
 
+            return Ok();
+        }
+
+        [HttpPost]
+        public ActionResult SaveName([FromBody] string Name)
+        {
+            //ProductService.AddRating(request.ProductId, request.Rating);
+            var test = Name;
             return Ok();
         }
 

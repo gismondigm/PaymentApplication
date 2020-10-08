@@ -1,9 +1,22 @@
 ﻿@page
 @using PaymentApplication.WebSite.Components
-@model IndexModel
+@using PaymentApplication.WebSite.Models
+@*@model IndexModel*@
+@model UserPayment
 @{
     ViewData["Title"] = "Home page";
 }
+
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.TextBoxFor(b => b.Name, new { @class = "form-control", placeholder = "User Name" })
+    </div>
+    <button class="btn btn-primary" id="submit">Submit</button>
+
+}
+
 
 @(await Html.RenderComponentAsync<PaymentForm>(RenderMode.ServerPrerendered))
 
