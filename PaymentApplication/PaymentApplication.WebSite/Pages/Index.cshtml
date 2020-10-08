@@ -18,6 +18,13 @@
 
 }
 
+<p>Enter a customer name:</p>
+
+<form method="post">
+    Name:
+    <input asp-for="Name" />
+    <input type="submit" />
+</form>
 
 @(await Html.RenderComponentAsync<Index>(RenderMode.ServerPrerendered))
 

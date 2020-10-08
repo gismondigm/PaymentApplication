@@ -16,7 +16,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="name">Your Name</label>
-                        <input type="text" asp-for="@selectedProduct.Name" value="Name" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <input type="text" asp-for="@selectedProduct.Email" value="Name" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         <div></div>
                     </div>
                     <div class="form-group col-md-6">
@@ -35,7 +35,7 @@
                     <textarea class="form-control" asp-for="@selectedProduct.Message" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
                     <div></div>
                 </div>
-                <div><button class="btn btn-primary" @onclick="(e => SubmitRating(selectedProduct.Name))" id="submit">Submit</button></div>
+                <div><button class="btn btn-primary" @onclick="(e => SubmitRating(ProductService.FirstName))" id="submit">Submit</button></div>
             </form>
         </div>
     </div>
@@ -50,5 +50,6 @@
 
     void SubmitRating(string name)
     {
+        //var emailAddress = Request.Form["name"];
         ProductService.SubmitName(name);
     } }

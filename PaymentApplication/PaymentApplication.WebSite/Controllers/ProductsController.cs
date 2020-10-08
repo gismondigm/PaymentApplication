@@ -35,7 +35,7 @@ namespace PaymentApplication.WebSite.Controllers
         public IActionResult AddUser(UserPayment userPayment)
         {
             var test = userPayment.Name;
-            ProductService.SubmitName(userPayment.Name);
+            //ProductService.SubmitName(userPayment.Name);
             return Redirect("/");
         }
 

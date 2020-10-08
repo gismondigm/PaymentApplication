@@ -14,8 +14,18 @@ namespace PaymentApplication.WebSite.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        [BindProperty]
+        public UserPayment UserPayment { get; set; }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
-
+            var test = UserPayment;
+            return RedirectToPage("./Index");
+        }
         public string firstName { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger,

@@ -19,7 +19,6 @@ namespace PaymentApplication.WebSite.Controllers
         [HttpPost]
         public IActionResult AddUser(UserPayment userPayment)
         {
-            var test = userPayment.Name;
             return Redirect("/");
         }
     }

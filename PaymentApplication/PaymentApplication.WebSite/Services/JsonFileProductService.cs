@@ -9,6 +9,7 @@ namespace PaymentApplication.WebSite.Services
 {
     public class JsonFileProductService
     {
+        public string FirstName { get; set; }
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
@@ -33,12 +34,9 @@ namespace PaymentApplication.WebSite.Services
             }
         }
 
-        public void SubmitName(string name)
+        public void SubmitName(string userPayment)
         {
-            var up = new UserPayment
-            {
-                Name = name
-            };
+            var test = userPayment;
 
         }
     }
