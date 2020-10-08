@@ -1,6 +1,7 @@
 ﻿@page
 @using PaymentApplication.WebSite.Components
 @using PaymentApplication.WebSite.Models
+@using Index = PaymentApplication.WebSite.Components.Index
 @*@model IndexModel*@
 @model UserPayment
 @{
@@ -18,6 +19,6 @@
 }
 
 
-@(await Html.RenderComponentAsync<PaymentForm>(RenderMode.ServerPrerendered))
+@(await Html.RenderComponentAsync<Index>(RenderMode.ServerPrerendered))
 
 <script src="_framework/blazor.server.js"></script>

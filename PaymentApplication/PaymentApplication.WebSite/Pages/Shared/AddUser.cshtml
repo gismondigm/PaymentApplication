@@ -1,0 +1,25 @@
+﻿@model PaymentApplication.WebSite.Models.UserPayment
+@{
+    ViewData["Title"] = "Add User Payment";
+}
+
+
+<div class="card-columns">
+
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <h5 class="card-title">Enter Payment Details</h5>
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <label for="name">Your Name</label>
+                    @Html.TextBoxFor(b => b.Name, new { @class = "form-control", placeholder = "User Name" })
+                </div>
+                <button class="btn btn-primary" id="submit">Submit</button>
+            }
+        </div>
+    </div>
+</div>

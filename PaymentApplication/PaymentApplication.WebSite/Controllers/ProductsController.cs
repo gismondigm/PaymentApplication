@@ -32,11 +32,11 @@ namespace PaymentApplication.WebSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveName([FromBody] string Name)
+        public IActionResult AddUser(UserPayment userPayment)
         {
-            //ProductService.AddRating(request.ProductId, request.Rating);
-            var test = Name;
-            return Ok();
+            var test = userPayment.Name;
+            ProductService.SubmitName(userPayment.Name);
+            return Redirect("/");
         }
 
         public class RatingRequest
